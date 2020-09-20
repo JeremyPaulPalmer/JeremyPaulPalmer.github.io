@@ -1,0 +1,510 @@
+/* Affects entire doc */
+html {
+    scroll-behavior: smooth; /* Ensures smooth page scrolling */
+}
+
+/* Body */
+body {
+    margin: 0%;
+        opacity: 1; /* Effects the page loading fade in effect */
+        transition: 3s opacity; /* Causes a 3 second fade in */
+    letter-spacing: .2vw;
+    font-family: 'Share Tech Mono', Roboto, Helvetica;
+    font-size: 1.5vw;
+}
+
+/* Fade effect when page loads */
+body.fade-out {
+    opacity: .1; 
+    transition: none;
+}
+
+/* Navbar */
+.navbar {
+    overflow: hidden; /* Hides content that overflows nav bar boundary */
+    background-color: dimgray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+        position: fixed;
+    -webkit-animation: moveNav 5s; /* For Safari 4.0 - 8.0 */
+        animation: moveNav 5s;
+}
+
+/* Navbar Text */
+.navbar a {
+    float: left; /*Specifies that the text floats on the left on the left of the navbar, but also ensures that padding is applied correctly */
+    display: block;
+    color: #82B222;
+    padding: .75vw 1vw; /* Adds padding around text */
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-weight: bolder;
+    font-family: 'Share Tech Mono', Roboto, Helvetica;
+    padding: 14px 16px;
+    text-align: center;
+        position: relative;
+    -webkit-animation: movenavText 5.75s; /* For Safari */
+        animation: movenavText 5.75s;
+    letter-spacing: .2vw;
+}
+
+/* Animation effect that moves the nav bar in from above the top of the screen upon page load */
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+/* Animation effect for moving the nav bar text in from above the top of the screen upon page load */
+@keyframes movenavText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+
+/* Animation effect that causes the overlay video text to move up from the bottom of the page upon page load */
+@keyframes movevideoText {
+    from {top: -100vw;}
+    to {top: 0px;}
+}
+
+/* Navbar Hover Effect */
+.navbar a:hover {
+    background-color: #82B222;
+    color: dimgray;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+/* Causes vid to zoom out from a zoomed in position upon page load */
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.5,1.5);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+/* Video */
+#matrix_video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    z-index: -1;
+    animation: zoominoutsinglefeatured 5s; /* Added animation */
+}
+
+/* Text Over the Video */
+#video_text {
+    background: rgba(0,0,0,0.85);
+    color: whitesmoke;
+    width: 100%;
+    padding: 25px;
+    padding-top: .1vh; /* Adds padding around text so background goes slightly beyond the text */
+    padding-bottom: 1vh;
+    margin-top: 23%;
+        position: relative;
+    -webkit-animation: moveNav 4s; /* Safari */
+        animation: movevideoText 4s;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Slideshow Styling */
+#slideshow_background {
+    background: rgba(255,255,255, 0.35); /* Slightly transparent white background */
+}
+
+.mySlides {
+    display: none;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Slideshow section/container */
+#slideshow_container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+/* Slideshow Images */
+.slideshow_images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0,0,0, .75);
+    width: auto;
+}
+
+/* Next and previous buttons */
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+/* Positioning the next button on right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Hover effect on slideshow buttons */
+.previous:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: whitesmoke;
+}
+
+/* Slideshow text */
+.text {
+    color: whitesmoke;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 7px 7px 7px 7px;
+}
+
+/* Number text (hidden) */
+.slide_number {
+    color: whitesmoke;
+    position: absolute;
+    top: 0;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: none;
+}
+
+/* Dots under slideshow */
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Slideshow dots hover effect */
+.active, .dot:hover {
+    background-color: black;
+}
+
+/* Fading animation for slideshow */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+/* Table - columns and rows */
+* {
+    box-sizing: border-box;
+}
+
+.column_1 {
+    float: left;
+    width: 50%;
+    height: 448px;
+    padding: 0px;
+    padding-top: 0px;
+    background-color: whitesmoke;
+}
+
+.column_2 {
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 10px;
+    height: 448px;
+    background-color: dimgray;
+}
+
+/* Deprecated
+.column_3 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 3.5%;
+    height: 450px;
+    background-color: dimgray;
+} */
+
+.column_4 {
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 448px;
+    padding: 10px;
+    padding-top: 7.2%;
+    background-color: whitesmoke;
+}
+
+/* Deprecated
+.column_5 {
+    float: left;
+    width: 50%;
+    height: 400px;
+    padding: 10px;
+    padding-top: .3%;
+    background-color: whitesmoke;
+} */
+
+.row:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.center {
+    font-family: Roboto, Perpetua, Rockwell Extra Bold;
+    text-align: center;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.center:hover {
+    transition: transform 2s;
+    transform: scale(1.1);
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: Roboto, Perpetua, Rockwell Extra Bold;
+    text-align: center;
+    margin-top: 3%;
+    color: black;
+}
+
+q {
+    font-style: italic;
+    font-weight: bold;
+}
+
+p {
+    font-family: Roboto, Perpetua, Rockwell Extra Bold;
+    text-align: justify;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+a {
+    color: #82B222;
+}
+
+img {
+    filter: grayscale(75%);
+    border-radius: 8px;
+    max-width: 100%;
+    height: 100%;
+    margin: auto auto auto auto;
+    display: block;
+}
+
+/* Contact Form */
+input[type=text] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: Roboto, Perpetua, Rockwell Extra Bold;
+}
+
+/* Submit Button */
+input[type=submit] {
+    background-color: dimgray;
+    color: #82B222;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto, Perpetua, Rockwell Extra Bold;
+}
+
+/* Hover Effect for Submit Button */
+input[type=submit]:hover {
+    background-color: #82B222;
+    color: dimgray;
+    font-weight: bold;
+    transform: scale(1.25);
+    transition: transfrom 1.5s;
+}
+
+form {
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 0px 20px 0px 20px;
+    font-family: Roboto, "Trebuchet MS", Optima;
+}
+
+p:hover {
+    color: #82B222;
+    transition: transform 1s;
+    transform: scale(1.01);
+}
+
+h1:hover {
+    color: black;
+    font-weight: normal;
+}
+
+img:hover {
+    filter: grayscale(5%);
+    transition: transform 1s;
+    transform: scale(1.1);
+}
+
+/* Contact Form Styling */
+
+/* Makes contact form button slide in from right on page load */
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {bottom: 1.75vw;}
+}
+
+/* Sticky button used to open contact form */
+.pop_up_button {
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: whitesmoke;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+/* Popup Form */
+.form-popup {
+    border: 3px solid whitesmoke;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+}
+
+/* Form styling */
+.form-container {
+    max-width: 49vw;
+    padding: 9px;
+    background-color: whitesmoke;
+}
+
+/* Input fields */
+.form-container input[type=text] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-family: 'Share Tech Mono', Roboto, Helvetica;
+    font-size: 1vw;
+}
+
+/* Submit button */
+.form-container .btn {
+    background-color: whitesmoke;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+/* Close button */
+.form-container .cancel {
+    background-color: black;
+    color: whitesmoke;
+    boder-color: gray;
+}
+
+/* Button styling */
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw 1.5vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/* Hover effect for buttons */
+button:hover, .form-container .btn:hover {
+    color: whitesmoke;
+    background-color: black;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: whitesmoke;
+    background-color: darkred;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: black;
+}
+
+footer {
+    padding: 35px;
+    background-color: gray;
+    align-content: center;
+}
+
+#center {
+    text-align: center;
+}
