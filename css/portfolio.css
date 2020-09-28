@@ -391,9 +391,8 @@ form {
 }
 
 p:hover {
-    color: #82B222;
     transition: transform 1s;
-    transform: scale(1.01);
+    transform: scale(0.97);
 }
 
 h1:hover {
@@ -404,7 +403,7 @@ h1:hover {
 img:hover {
     filter: grayscale(5%);
     transition: transform 1s;
-    transform: scale(1.1);
+    transform: scale(0.97);
 }
 
 /* Contact Form Styling */
